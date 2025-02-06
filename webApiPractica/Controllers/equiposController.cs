@@ -40,7 +40,7 @@ namespace webApiPractica.Controllers
                                                 estado_equipo = es.descripcion,
                                                 detalle = $"Tipo: {t.descripcion}, Marca : {m.nombre_marca}, Estado Equipo : {es.descripcion}",
                                                 e.estado
-                                           }).Skip(3).Take(1).ToList();
+                                           }).OrderBy(resultado => resultado.estado_equipo_id).ToList();
             if (listadoEquipo.Count() == 0)
             {
                 return NotFound();
